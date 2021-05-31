@@ -27,6 +27,20 @@ namespace Projeto4_SegurancaInformacao.Implementacoes
 
             if (usuarioSenha.Value.Equals(hash)) return true;
             else return false;
+
+        }
+        public bool AutenticarUsuario(ref Dictionary<string, string> arquivoBase, string usuario, string senha)
+        {
+
+            var hash = _GeradorSha256.GerarHash(usuario, senha, _Salt);
+            var usuarioSenha = arquivoBase.FirstOrDefault(x => x.Key == usuario);
+
+            if (usuarioSenha.Key != null)
+            {
+                if (usuarioSenha.Value.Equals(hash)) return true;
+                else return false;
+            }
+            return false;
         }
     }
 }

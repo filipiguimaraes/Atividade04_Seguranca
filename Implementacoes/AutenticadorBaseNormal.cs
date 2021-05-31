@@ -23,5 +23,10 @@ namespace Projeto4_SegurancaInformacao.Implementacoes
             if (usuarioSenha.Value.Equals(senha)) return true;
             else return false;
         }
+
+        public bool AutenticarUsuario(ref Dictionary<string, string> arquivoBase, string usuario, string senha)
+        {
+            return false;
+        }
     }
 }
